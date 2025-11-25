@@ -1,3 +1,6 @@
 body {
-background-color: aliceblue;
+background-image: url(https://www.amsterdamned2.nl/wp-content/uploads/2025/11/174_Amsterdamned2_SelectionStills_01.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
