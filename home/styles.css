@@ -1,201 +1,280 @@
-:root {
-    --bg: #0b0b0d5f;
-    --text: #f2f2f2;
-    --accent: #ff2929;
-    --accent-soft: rgba(255,50,50,0.4);
-    --card-bg: #11111661;
-    --radius: 14px;
-    --shadow: 0 10px 35px rgba(0,0,0,0.6);
-    background-image: url(https://www.amsterdamned2.nl/wp-content/uploads/2025/11/174_Amsterdamned2_SelectionStills_01.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+     :root {
+            --accent: #ff2929;
+            --accent-soft: rgba(255,41,41,0.6);
+            --text: #eaeaea;
+            --radius: 12px;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* =============== BODY =============== */
+        body {
+            background: radial-gradient(circle at top, #0b0b0b, #000000 70%);
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+        }
+
+        /* =============== NAVBAR =============== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10,10,15,0.92);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            box-shadow: 0 0 25px rgba(0,0,0,0.6);
+        }
+        .navbar .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text);
+            text-shadow: 0 0 8px rgba(255,0,0,0.4);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            margin: 0;
+            padding-right: 750px;
+        }
+        .nav-links li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            padding-bottom: 4px;
+            transition: 0.25s ease;
+        }
+        .nav-links li a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* =============== HEADER =============== */
+        header {
+            text-align: center;
+            padding: 180px 20px 120px;
+            background-image:
+                linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.95)),
+                url('https://www.amsterdamned2.nl/wp-content/uploads/2025/11/174_Amsterdamned2_SelectionStills_01.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 -120px 150px rgba(0,0,0,0.95);
+            color: #fff;
+        }
+
+        .blood-title {
+            position: relative;
+            font-size: 3.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow:
+                0 0 8px rgba(255, 40, 40, 0.6),
+                0 0 18px rgba(255, 0, 0, 0.7),
+                0 0 35px rgba(120, 0, 0, 0.9),
+                0 0 60px rgba(60, 0, 0, 1);
+            animation: bloodPulse 4s ease-in-out infinite;
+        }
+
+        .blood-title::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, #8b0000, #ff0000);
+            transform: translateX(-50%);
+            border-radius: 4px;
+            animation: drip 5s infinite ease-in-out;
+            opacity: 0.85;
+        }
+
+        .blood-title::before {
+            content: "";
+            position: absolute;
+            left: 62%;
+            top: 100%;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, #6b0000, #cc0000);
+            border-radius: 4px;
+            animation: drip 6.5s infinite ease-in-out;
+            opacity: 0.75;
+        }
+
+        @keyframes bloodPulse {
+            0%, 100% {
+                text-shadow:
+                    0 0 6px rgba(255, 40, 40, 0.5),
+                    0 0 15px rgba(180, 0, 0, 0.7),
+                    0 0 30px rgba(80, 0, 0, 0.9);
+            }
+            50% {
+                text-shadow:
+                    0 0 14px rgba(255, 60, 60, 0.9),
+                    0 0 35px rgba(255, 0, 0, 1),
+                    0 0 60px rgba(120, 0, 0, 1);
+            }
+        }
+
+        @keyframes drip {
+            0% { height: 0; opacity: 0; }
+            20% { height: 18px; opacity: 0.9; }
+            50% { height: 38px; }
+            80% { height: 38px; opacity: 0.9; }
+            100% { height: 0; opacity: 0; }
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            margin-top: 20px;
+        }
+
+        /* =============== SECTIONS =============== */
+        section {
+            padding: 20px;
+            background: rgba(11,11,13,0.6);
+            margin: 20px auto;
+            max-width: 700px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        section h2 {
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+       .search-container {
+    position: relative;
 }
 
-body {
-    margin: 0;
-    font-family: "Inter", Arial, sans-serif;
-    color: var(--text);
-    overflow-x: hidden;
-    padding: 0;
+#searchInput {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ff2929;
+    width: 200px;
+    font-size: 0.9rem;
+    outline: none;
 }
 
-img, .poster {
-    display: block;
-    margin: 50px auto 10px;
-    border-radius: var(--radius);
-}
-
-.poster {
+.search-results {
+    position: absolute;
+    top: 36px; /* precies onder de input */
+    left: 0;
     width: 100%;
-    max-width: 350px;
-    box-shadow: 0 0 40px rgba(255,50,50,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.poster:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 55px var(--accent);
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 60px 0 10px 10px;
-    text-shadow: 0 0 18px var(--accent-soft);
-}
-
-h2 p, p {
-    margin: 10px auto;
-    max-width: 800px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-header {
-    text-align: center;
-    padding: 80px 20px 40px;
-    background: linear-gradient(to bottom, #121218, transparent);
-}
-
-header p {
-    font-size: 1.2rem;
-    opacity: 0.85;
-}
-
-section {
-    padding: 4px 20px;
-    background: rgba(11,11,13,0.6);
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-}
-section p {
-    text-align: center;
-}
-strong {
-    display: block;
-    text-align: center;
-    font-size: 1.4rem;
-    margin-top: 30px;
-}
-
-.button-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.btn-primary {
-    display:inline-block;
-    align-self: center;
-    padding: 14px 32px;
-    font: 600 1.1rem Arial, sans-serif;
+    background: rgba(0,0,0,0.95);
     color: #fff;
-    background: #0b0b0d;
-    border: 2px solid var(--accent);
-    border-radius: 10px;
-    text-decoration: none;
+    border: 1px solid #ff2929;
+    border-radius: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    display: none;
+    font-size: 0.85rem;
+    z-index: 1001;
+}
+
+.search-results div {
+    padding: 6px 10px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(255,42,42,0.4);
+    transition: background 0.2s;
 }
 
-.btn-primary:hover {
-    background: var(--accent);
-    color: #0b0b0d;
-    box-shadow: 0 0 20px var(--accent), 0 0 35px rgba(255,42,42,0.6);
-    transform: scale(1.05);
+.search-results div:hover {
+    background: rgba(255,41,41,0.5);
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    background: rgba(10,10,15,0.92);
-    backdrop-filter: blur(6px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    z-index: 1000;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+
+        /* =============== FOOTER =============== */
+        .footer {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .footer-container {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-block {
+            flex: 1 1 200px;
+            margin-bottom: 15px;
+        }
+
+        .footer-block h2,
+        .footer-block h3 {
+            color: #fff;
+            margin-bottom: 6px;
+            font-weight: normal;
+        }
+
+        .footer-block a {
+            color: #bfbfbf;
+            text-decoration: none;
+            display: block;
+            margin: 2px 0;
+            font-weight: normal;
+        }
+        .footer-block a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 15px;
+            padding-top: 10px;
+            font-size: 12px;
+        }
+.home {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+  color: #eaeaea;
 }
 
-.navbar .logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text);
-    text-shadow: 0 0 8px rgba(255,0,0,0.4);
+.home section {
+  background: rgba(11,11,13,0.6);
+  padding: 25px 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 35px;
-    margin: 0;
-    padding: 0;
+.home h1, .home h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #ff2929;
+  text-shadow: 0 0 12px rgba(255,41,41,0.5);
 }
 
-.nav-links li a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 1.05rem;
-    letter-spacing: 0.5px;
-    padding-bottom: 4px;
-    transition: 0.25s ease;
-}
-.nav-links li a:hover {
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--accent);
-    border-bottom: 2px solid var(--accent);
-}
-
-.footer {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    padding: 20px 15px;
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-}
-
-.footer-container {
-    max-width: 900px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.footer-block {
-    flex: 1 1 200px;
-    margin-bottom: 15px;
-}
-
-.footer-block h2,
-.footer-block h3 {
-    color: #fff;
-    margin-bottom: 6px;
-    font-weight: normal;
-}
-
-.footer-block a {
-    color: #bfbfbf;
-    text-decoration: none;
-    display: block;
-    margin: 2px 0;
-    font-weight: normal;
-}
-.footer-block a:hover {
-    color: #fff;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    margin-top: 15px;
-    padding-top: 10px;
-    font-size: 12px;
+.home p {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  text-align: justify;
+  color: #e0e0e0;
 }
