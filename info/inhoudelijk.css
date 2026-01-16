@@ -1,0 +1,260 @@
+body {
+  background: radial-gradient(circle at top, #0b0b0b, #000000 70%);
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #eaeaea;
+}
+
+/* ================= HEADER ================= */
+
+header {
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.95)),
+    url(https://www.amsterdamned2.nl/wp-content/uploads/2025/11/174_Amsterdamned2_SelectionStills_01.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 180px 20px 120px;
+  text-align: center;
+  box-shadow: inset 0 -120px 150px rgba(0,0,0,0.95);
+}
+
+.blood-title {
+  position: relative;
+  font-size: 3.4rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  text-shadow:
+    0 0 8px rgba(255, 40, 40, 0.6),
+    0 0 18px rgba(255, 0, 0, 0.7),
+    0 0 35px rgba(120, 0, 0, 0.9),
+    0 0 60px rgba(60, 0, 0, 1);
+
+  animation: bloodPulse 4s ease-in-out infinite;
+}
+
+/* Nep-bloed druppels */
+.blood-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, #8b0000, #ff0000);
+  transform: translateX(-50%);
+  border-radius: 4px;
+  animation: drip 5s infinite ease-in-out;
+  opacity: 0.85;
+}
+
+/* Tweede druppel (offset) */
+.blood-title::before {
+  content: "";
+  position: absolute;
+  left: 62%;
+  top: 100%;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, #6b0000, #cc0000);
+  border-radius: 4px;
+  animation: drip 6.5s infinite ease-in-out;
+  opacity: 0.75;
+}
+
+/* BLOED PULSE */
+@keyframes bloodPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255, 40, 40, 0.5),
+      0 0 15px rgba(180, 0, 0, 0.7),
+      0 0 30px rgba(80, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(255, 60, 60, 0.9),
+      0 0 35px rgba(255, 0, 0, 1),
+      0 0 60px rgba(120, 0, 0, 1);
+  }
+}
+
+/* DRUPPEL ANIMATIE */
+@keyframes drip {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  20% {
+    height: 18px;
+    opacity: 0.9;
+  }
+  50% {
+    height: 38px;
+  }
+  80% {
+    height: 38px;
+    opacity: 0.9;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+
+/* ================= NAVBAR (COMPACT) ================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+/* Logo links */
+.navbar .logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Middelste container voor links + zoekbalk */
+.center-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 0 auto;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.nav-links a:hover {
+  color: #ff2929;
+}
+
+.search-container {
+    position: relative;
+}
+
+#searchInput {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ff2929;
+    width: 200px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.search-results {
+    position: absolute;
+    top: 36px; /* precies onder de input */
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    color: #fff;
+    border: 1px solid #ff2929;
+    border-radius: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    display: none;
+    font-size: 0.85rem;
+    z-index: 1001;
+}
+
+.search-results div {
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-results div:hover {
+    background: rgba(255,41,41,0.5);
+}
+
+
+
+/* ================= SECTIONS ================= */
+
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ff2a2a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  color: #dddddd;
+}
+
+/* ================= INFO GRID ================= */
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background:
+    linear-gradient(145deg, #151515, #0c0c0c);
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255,0,0,0.1),
+    0 10px 30px rgba(0,0,0,0.9);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 25px rgba(255,0,0,0.3),
+    0 18px 45px rgba(0,0,0,1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ff2a2a;
+  font-size: 1.25rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}

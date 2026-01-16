@@ -107,30 +107,47 @@ h1 {
 
 .gallery-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+    gap: 20px;
 }
 
-.gallery-img {
-    width: calc(50% - 15px);
-    max-width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255,42,42,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.gallery-item {
+    position: relative;
+    width: 250px;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Download knop */
+.download-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
-.gallery-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 35px rgba(255,42,42,0.6);
+/* Toon knop bij hover */
+.gallery-item:hover .download-btn {
+    opacity: 1;
 }
 
-@media (max-width: 600px) {
-    .gallery-img {
-        width: 100%;
-        max-width: 100%;
-    }
+.download-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
 }
 
 
